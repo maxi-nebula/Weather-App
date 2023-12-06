@@ -1,0 +1,36 @@
+/** @format */
+body {
+  background-color: rgb(5, 5, 5);
+  color: coral;
+  background-image: url(./images/lukas-robertson.jpg);
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.searchbutton {
+  background-color: coral;
+  color: white;
+  font-weight: bolder;
+}
+
+.container {
+  height: 700px;
+  width: 500px;
+}
+
+.weathercard {
+  border-left: 8px solid orange;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #ffffff;
+  height: 350px;
+  width: 350px;
+  padding: 20px;
+  color: black;
+  text-align: justify;
+}
