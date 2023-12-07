@@ -1,9 +1,19 @@
 /** @format */
 body {
-  background-color: rgb(5, 5, 5);
+  /* background-color: #87ceeb;*/
+
   color: coral;
-  background-image: url(./images/lukas-robertson.jpg);
-  background-size: cover;
+  /* background-image: url(./images/lukas-robertson.jpg);
+  background-size: cover;*/
+  background: rgb(34, 237, 221);
+  background: linear-gradient(
+    90deg,
+    rgba(34, 237, 221, 1) 35%,
+    rgba(27, 232, 228, 1) 48%,
+    rgba(24, 230, 231, 1) 54%,
+    rgba(22, 228, 233, 1) 58%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
 .header {
@@ -12,6 +22,9 @@ body {
   align-items: center;
 }
 
+.searcharea {
+  padding: 30px;
+}
 .searchbutton {
   background-color: coral;
   color: white;
@@ -21,16 +34,42 @@ body {
 .container {
   height: 700px;
   width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.weathercard {
-  border-left: 8px solid orange;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: #ffffff;
-  height: 350px;
-  width: 350px;
-  padding: 20px;
-  color: black;
-  text-align: justify;
+.statustext {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+}
+
+.locationtext {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: rgb(0, 110, 255);
+}
+.currenttimetext {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: white;
+}
+
+.temptext {
+  font-size: 6rem;
+  font-weight: bolder;
+  color: white;
+}
+
+.humiditytext {
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+}
+
+.feelsliketext {
+  font-size: 3rem;
+  font-weight: bolder;
+  color: rgb(0, 110, 255);
 }

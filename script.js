@@ -26,6 +26,7 @@ connectweatherApi = async (inputlocation) => {
     })
     .then(function (response) {
       const requireweatherInformation = getrequiredInformation(response);
+      //createCard();
 
       displayResult(requireweatherInformation);
     });
@@ -55,31 +56,58 @@ getrequiredInformation = (res) => {
   return weatherInformation;
 };
 
-displayResult = (reqweatherInfo) => {
-  const mainContainer = document.getElementById("maincontainer");
+createCard = () => {
   const containerDiv = document.createElement("div");
-  containerDiv.classList.add("weathercard");
+  const currentText = document.createElement("div");
+  currentText.id = "text";
+  currentText.className = "statustext";
+  const currentFeelslike = document.createElement("div");
+  currentFeelslike.id = "feelslike";
+  currentFeelslike.className = "feelsliketext";
+  const currentHumidity = document.createElement("div");
+  currentHumidity.id = "humidity";
+  currentHumidity.className = "humiditytext";
+  const currentTemp = document.createElement("div");
+  currentTemp.id = "temperature";
+  currentTemp.className = "temptext";
+  const currentLocation = document.createElement("div");
+  currentLocation.id = "location";
+  currentLocation.className = "locationtext";
 
-  const currentText = document.createElement("p");
-  currentText.innerText = `${reqweatherInfo.condition}`;
-
-  const currentFeelslike = document.createElement("p");
-  currentFeelslike.innerText = `${reqweatherInfo.feelsLike}`;
-  const currentHumidity = document.createElement("p");
-  currentHumidity.innerText = `${reqweatherInfo.humidity}`;
-  const currentTemp = document.createElement("p");
-  currentTemp.innerText = `${reqweatherInfo.currentTemperature}`;
-  const currentLocation = document.createElement("p");
-  currentLocation.innerText = `${reqweatherInfo.location}`;
-  const currentTime = document.createElement("p");
-  currentTime.innerText = `${reqweatherInfo.localTime}`;
+  const currentTime = document.createElement("div");
+  currentTime.id = "localtime";
+  currentTime.className = "currenttimetext";
 
   containerDiv.appendChild(currentLocation);
+  containerDiv.appendChild(currentTime);
   containerDiv.appendChild(currentText);
 
-  containerDiv.appendChild(currentTime);
-  containerDiv.appendChild(currentTemp);
   containerDiv.appendChild(currentHumidity);
+  containerDiv.appendChild(currentTemp);
   containerDiv.appendChild(currentFeelslike);
-  mainContainer.appendChild(containerDiv);
+
+  return containerDiv;
+};
+
+displayResult = (reqweatherInfo) => {
+  console.log(reqweatherInfo);
+  const mainContainer = document.getElementById("maincontainer");
+  const weatherinfoContainer = createCard();
+  console.log(weatherinfoContainer);
+  mainContainer.appendChild(weatherinfoContainer);
+  const locationInfo = document.getElementById("location");
+  const text = document.getElementById("text");
+  text.innerText = `${reqweatherInfo.condition}`;
+  locationInfo.innerText = `${reqweatherInfo.location}`;
+  const localtimeInfo = document.getElementById("localtime");
+
+  localtimeInfo.innerText = `${reqweatherInfo.localTime}`;
+  const tempInfo = document.getElementById("temperature");
+  tempInfo.innerText = `${reqweatherInfo.currentTemperature} f`;
+
+  const humidityInfo = document.getElementById("humidity");
+  humidityInfo.innerText = `humidity : ${reqweatherInfo.humidity}`;
+
+  const feelslikeInfo = document.getElementById("feelslike");
+  feelslikeInfo.innerText = `feels like :${reqweatherInfo.feelsLike} f`;
 };
